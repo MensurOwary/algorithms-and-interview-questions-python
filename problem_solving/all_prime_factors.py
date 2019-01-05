@@ -14,7 +14,7 @@ def all_prime_factors(num):
     prime_factors = []
     # take the upper bound as square root of the given number
     # because it won't be bigger than that
-    upper = int(math.sqrt(num))+1
+    upper = int(math.sqrt(num)) + 1
     # if number is divisible by 2, keep dividing
     # whilst doing it, append 2 to the list
     # until it is no longer divisible by 2
@@ -36,5 +36,8 @@ def all_prime_factors(num):
         while num % i == 0:
             prime_factors.append(i)
             num = num // i
+    # if number is prime itself. since it won't be divided to any number, it will stay as it is
+    if num > 2:
+        prime_factors.append(num)
     # after finishing return the list
     return prime_factors
