@@ -1,6 +1,6 @@
 Here I compiled some questions that can be asked in an interview.
 
-##Table of contents
+## Table of contents
 
  - ### Strings
     - [All permutations of a string](./string-questions/all_permutations.py)
@@ -27,6 +27,8 @@ Here I compiled some questions that can be asked in an interview.
     - [Binary search](search_algorithms/element_searching/binary_search.py)
     - [Breadth-first search](search_algorithms/uninformed/breadth_first_search.py)
     - [Depth-first search](search_algorithms/uninformed/depth_first.py)
+    - [Depth-limited search](search_algorithms/uninformed/depth_limited.py)
+    - [Iterative-deepening search](search_algorithms/uninformed/iterative_deepening.py)
     - [Uniform cost search](search_algorithms/uninformed/uniform_cost_search.py)
  
  - ### Miscellaneous
