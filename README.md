@@ -25,11 +25,15 @@ Here I compiled some questions that can be asked in an interview.
  - ### Search Algorithms
     - [Linear search](search_algorithms/element_searching/linear_search.py)
     - [Binary search](search_algorithms/element_searching/binary_search.py)
-    - [Breadth-first search](search_algorithms/uninformed/breadth_first_search.py)
-    - [Depth-first search](search_algorithms/uninformed/depth_first.py)
-    - [Depth-limited search](search_algorithms/uninformed/depth_limited.py)
-    - [Iterative-deepening search](search_algorithms/uninformed/iterative_deepening.py)
-    - [Uniform cost search](search_algorithms/uninformed/uniform_cost_search.py)
+    - [Uninformed](search_algorithms/uninformed/)
+        - [Breadth-first search](search_algorithms/uninformed/breadth_first_search.py)
+        - [Depth-first search](search_algorithms/uninformed/depth_first.py)
+        - [Depth-limited search](search_algorithms/uninformed/depth_limited.py)
+        - [Iterative-deepening search](search_algorithms/uninformed/iterative_deepening.py)
+        - [Uniform cost search](search_algorithms/uninformed/uniform_cost_search.py)
+    - [Informed](search_algorithms/informed/)
+        - [Greedy search](search_algorithms/informed/greedy.py)
+        - [A* search](search_algorithms/informed/astar.py)
  
  - ### Miscellaneous
     - [All prime factors](problem_solving/all_prime_factors.py)
