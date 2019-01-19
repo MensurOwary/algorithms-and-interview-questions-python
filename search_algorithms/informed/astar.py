@@ -47,39 +47,63 @@ Goal = ['Bucharest']
 
 
 def a_star(start):
-    queue = {start: 0}
+    # initialize a queue with the start point being the only element in it
+    # its cost is equal to its heuristics
+    queue = {start: Heuristics[start]}
+    # dictionary to keep track of visited nodes
     visited = dict()
+    # dictionary to keep track of child - parent relationship
     parents = {start: start}
+    # while the queue is not empty
     while queue:
+        # take the node with minimum cost
         node = min(queue, key=queue.get)
+        # add it to the visited dictionary
+        # its total cost will be path until the node + its heuristic cost
         visited[node] = calculate_path(node, parents, start) + Heuristics[node]
+        # if the node is goal node
         if node in Goal:
+            # return the path
             route = show_route(node, parents, start)
             route.append(node)
             return route
         # filter the nodes and add them to the queue
         filter_nodes(node, visited, parents, start, queue)
+        # remove the node from the queue
         queue.pop(node)
+    # if no path found return an empty list
     return []
 
 
+# filters nodes based on the visited list
 def filter_nodes(node, visited, parents, start, queue):
-    """
-        {"Arad":140, "Oradea":151, "Fagaras":99,"Rimnicu Vilcea":80}
-    """
-
+    # cost from the start node to the current node
     cost_so_far = calculate_path(node, parents, start)
+    # children nodes
     nodes = Graph[node]
+    # for each expanded node
     for city, cost in nodes.items():
+        # calculate overall city cost
+        # it is equal to
+        # 1. cost_so_far - the path cost from start node to the current node
+        # 2. cost - the cost of reaching the node itself from the parent node
+        # 3. Heuristics[city] - heuristic cost of the node
         overall_city_cost = cost_so_far + cost + Heuristics[city]
+        # if the node is not visited
         if city not in visited:
+            # add it to the queue with total cost
             queue[city] = overall_city_cost
+            # set its parent to the node that expanded it
             parents[city] = node
+        # if it is visited but for higher cost than the current one
         elif visited[city] > overall_city_cost or (city in queue and queue[city] > overall_city_cost):
+            # add it to the queue with total cost
             queue[city] = overall_city_cost
+            # set its parent to the node that expanded it
             parents[city] = node
 
 
+# calculate the path cost
 def calculate_path(node, parents, start):
     route = show_route(node, parents, start)
     total = 0
